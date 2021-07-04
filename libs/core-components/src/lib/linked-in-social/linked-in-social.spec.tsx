@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import CoreComponents from './core-components';
+import LinkedInSocial from './linked-in-social';
 
-describe('CoreComponents', () => {
+describe('LinkedInSocial', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CoreComponents />);
+    const { baseElement } = render(<LinkedInSocial />);
     expect(baseElement).toBeTruthy();
   });
 });

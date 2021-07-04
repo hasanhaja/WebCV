@@ -3,12 +3,14 @@ import React from 'react';
 import './card.module.scss';
 
 /* eslint-disable-next-line */
-export interface CardProps {}
+export interface CardProps {
+  children: React.ReactNode;
+}
 
-export function Card(props: CardProps) {
+export function Card({ children }: CardProps) {
   return (
-    <div>
-      <h1>Welcome to Card!</h1>
+    <div className="card">
+      { children }
     </div>
   );
 }

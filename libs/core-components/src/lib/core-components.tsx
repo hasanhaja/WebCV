@@ -1,16 +1,14 @@
-import React from 'react';
+import Card from './card/card';
+import Content from './content/content';
+import GitHubSocial from './git-hub-social/git-hub-social';
+import LinkedInSocial from './linked-in-social/linked-in-social';
+import TwitterSocial from './twitter-social/twitter-social';
+import Location from './location/location';
 
-import './core-components.module.scss';
-
-/* eslint-disable-next-line */
-export interface CoreComponentsProps {}
-
-export function CoreComponents(props: CoreComponentsProps) {
-  return (
-    <div>
-      <h1>Welcome to core-components!</h1>
-    </div>
-  );
-}
-
-export default CoreComponents;
+export { Card,
+  Content,
+  GitHubSocial,
+  LinkedInSocial,
+  TwitterSocial,
+  Location,
+};

@@ -6,10 +6,13 @@ import './footer.module.scss';
 export interface FooterProps {}
 
 export function Footer(props: FooterProps) {
+  const year = new Date().getFullYear();
   return (
-    <div>
-      <h1>Welcome to Footer!</h1>
-    </div>
+    <footer>
+      <div className="footer-content">
+        {`\u00A9 ${year} Hasan Ali`}
+      </div>
+    </footer>
   );
 }
 
