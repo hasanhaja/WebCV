@@ -13,22 +13,22 @@ import Footer from './footer/footer';
 
 export function App() {
   return (
-    <div className={styles.app}>
-      <Header />
-      <Content>
-        <Hero profilePicPath="assets/hero/profile_pic.jpg"
-              alt="Profile picture of a handsome devil."
-              size={{width: "250", height: "250"}}
-              greeting="Hi, I'm Hasan!"
-              location="Dubai"
-        />
-        <Skills />
-        <Education />
-        <Experience/>
-        <Hobbies />
-      </Content>
-      <Footer />
-    </div>
+      <>
+        <Header />
+        <Content>
+          <Hero profilePicPath="assets/hero/profile_pic.jpg"
+                alt="Profile picture of a handsome devil."
+                size={{width: 35, height: 35}}
+                greeting="Hi, I'm Hasan!"
+                location={{city: "Dubai", country: "United Arab Emirates"}}
+          />
+          <Skills />
+          <Education />
+          <Experience/>
+          <Hobbies />
+        </Content>
+        <Footer />
+      </>
   );
 }
 

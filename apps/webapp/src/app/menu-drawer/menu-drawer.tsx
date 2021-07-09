@@ -14,7 +14,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import styles from './menu-drawer.module.scss';
 import {
-  AppBar,
+  AppBar, Avatar,
   createStyles,
   Grid,
   IconButton,
@@ -40,6 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       // background: bg,
+      // width: 325,
+      flexGrow: 1,
+      overflow: 'hidden',
+      // padding: theme.spacing(0, 3),
+      width: theme.spacing(35),
     },
     list: {
       // width: 325,
@@ -49,11 +54,17 @@ const useStyles = makeStyles((theme: Theme) =>
       // background: bg,
     },
     closeButton: {
-      // marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2),
+    },
+    avatar: {
+      marginLeft: theme.spacing(2),
     },
     title: {
-      // flexGrow: 1,
+      flexGrow: 1,
     },
+    header: {
+      width: "100%",
+    }
   }),
 );
 
@@ -61,13 +72,17 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
   const classes = useStyles();
 
   const header = () => (
-    <Paper elevation={0}>
-      <Grid container spacing={3}>
+    <Paper elevation={0} className={classes.header}>
+      <Grid container spacing={3} wrap="nowrap">
         <Grid item xs>
-          <AccountBoxIcon/>
+          <Avatar
+            className={classes.avatar}
+          >
+            H
+          </Avatar>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6" className={classes.title}>
+        <Grid item xs>
+          <Typography noWrap={true} variant="h6" className={classes.title}>
             Hasan Ali
           </Typography>
         </Grid>
@@ -125,7 +140,7 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
                      classes={{paper: classes.paper}}
                      anchor="right"
     >
-      <div>
+      <div className={classes.root}>
         {/*TODO Adjust this grid component for different screen sizes*/}
         {header()}
         <Divider />

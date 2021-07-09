@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@webcv/core-components": ["libs/core-components/src/index.ts"]
+      "@webcv/core-components": ["libs/core-components/src/index.ts"],
+      "@webcv/data": ["libs/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

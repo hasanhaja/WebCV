@@ -3,40 +3,62 @@ import React from 'react';
 import './hero.module.scss';
 
 import { Location } from '@webcv/core-components';
+import { LocationInformation } from '@webcv/data';
+import { Avatar, Container, createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 
 /* eslint-disable-next-line */
 export interface HeroProps {
   profilePicPath: string,
   alt: string,
   size: {
-    width: string,
-    height: string,
+    width: number,
+    height: number,
   },
   greeting: string,
-  location: string,
+  location: LocationInformation,
 }
 
-/**
- #profile-pic {
-    width: 70%;
-    max-width: 300px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 50%;
-    grid-area: picture;
-    margin: 0 auto;
+const useStyles = (width: number, height: number) => {
+  return makeStyles((theme: Theme) =>
+    createStyles({
+      // root: {
+      //   display: 'flex',
+      //   '& > *': {
+      //     margin: theme.spacing(1),
+      //   },
+      // },
+      large: {
+        width: theme.spacing(width),
+        height: theme.spacing(height),
+      },
+    }),
+  );
 }
- */
 
 export function Hero({ profilePicPath, alt, size, greeting, location }: HeroProps) {
-
+  const classes = useStyles(size.width, size.height)();
   return (
-    <div id="hero-container" className="container">
-      <img src={profilePicPath} alt={alt} width={size.width} height={size.height} id="profile-pic"/>
-      <h2 id="greeting">{greeting}</h2>
-      {/* TODO location component*/}
-      <Location location={location} />
-    </div>
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+    >
+      <Grid item>
+        <Avatar className={classes.large} src={profilePicPath} alt={alt} id="profile-pic"/>
+      </Grid>
+      <Grid item>
+        <Typography
+          variant="h5"
+          id="greeting"
+          noWrap={true}
+        >
+          {greeting}
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Location location={location} />
+      </Grid>
+    </Grid>
   );
 }
 

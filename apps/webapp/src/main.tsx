@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 
 import App from './app/app';
 import { ThemeProvider } from "@material-ui/core/styles";
-import { theme } from './theme';
+import { setTheme } from './setTheme';
+import { CssBaseline } from '@material-ui/core';
 
+// TODO Consider using <CssBaseline /> after looking it up
+// TODO Custom Error page or Page under construction page
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={setTheme()}>
+      <CssBaseline />
       <App />
     </ThemeProvider>
   </React.StrictMode>,

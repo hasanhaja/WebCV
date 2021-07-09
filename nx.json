@@ -18,6 +18,7 @@
   "projects": {
     "webapp": { "tags": [] },
     "webapp-e2e": { "tags": [], "implicitDependencies": ["webapp"] },
-    "core-components": { "tags": [] }
+    "core-components": { "tags": [] },
+    "data": { "tags": [] }
   }
 }

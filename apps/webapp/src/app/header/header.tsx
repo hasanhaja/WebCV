@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
 import './header.module.scss';
-import { AppBar, Button, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
+import {
+  AppBar,
+  Avatar,
+  Button,
+  createStyles,
+  IconButton,
+  makeStyles,
+  Theme,
+  Toolbar,
+  Typography
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import MenuDrawer from '../menu-drawer/menu-drawer';
@@ -23,13 +33,14 @@ export interface HeaderProps {}
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      // flexGrow: 1,
+      flexGrow: 1,
+      overflow: "hidden",
     },
-    closeButton: {
-      // marginRight: theme.spacing(2),
+    hamburgerButton: {
+      marginRight: theme.spacing(2),
     },
     title: {
-      // flexGrow: 1,
+      flexGrow: 1,
     },
   }),
 );
@@ -57,13 +68,17 @@ export function Header(props: HeaderProps) {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          <Button color="inherit">
-            <AccountBoxIcon />
+          <Button color="inherit" disabled>
+            <Avatar>H</Avatar>
           </Button>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            variant="h6"
+            className={classes.title}
+            noWrap={true}
+          >
             Hasan Ali
           </Typography>
-          <IconButton edge="end" className={classes.closeButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+          <IconButton edge="end" className={classes.hamburgerButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
           <MenuDrawer open={openState} toggleDrawer={toggleDrawer} />
