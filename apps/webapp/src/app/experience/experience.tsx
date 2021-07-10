@@ -3,12 +3,21 @@ import { InfoCard } from '@webcv/core-components';
 import { ExperienceInformation} from '@webcv/data';
 
 import './experience.module.scss';
-import { Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 
 /* eslint-disable-next-line */
 export interface ExperienceProps {}
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+  }),
+);
+
 export function Experience(props: ExperienceProps) {
+  const classes = useStyles();
 
   const eschmannExperience = new ExperienceInformation(
     2016,
@@ -36,9 +45,18 @@ export function Experience(props: ExperienceProps) {
   return (
     <div>
       <Typography variant="h4">Experience</Typography>
+      <Grid
+      container
+      className={classes.root}
+      >
       {
-        content.map(experience => <InfoCard information={experience} />)
+        content.map(experience => (
+          <Grid item>
+            <InfoCard information={experience} />
+          </Grid>
+        ))
       }
+      </Grid>
     </div>
   );
 }

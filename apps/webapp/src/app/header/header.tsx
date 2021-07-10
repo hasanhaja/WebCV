@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    shape: {
+      borderRadius: 0,
+    },
+    logo: {
+      marginLeft: theme.spacing(2),
+    },
   }),
 );
 
@@ -66,9 +72,9 @@ export function Header(props: HeaderProps) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar className={classes.shape} position="fixed">
         <Toolbar>
-          <Button color="inherit" disabled>
+          <Button color="inherit" disabled className={classes.logo}>
             <Avatar>H</Avatar>
           </Button>
           <Typography

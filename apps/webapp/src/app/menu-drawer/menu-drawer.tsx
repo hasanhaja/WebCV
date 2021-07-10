@@ -34,7 +34,7 @@ export interface MenuDrawerProps {
   toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
-const bg = "orange";
+// const bg = "orange";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       overflow: 'hidden',
       // padding: theme.spacing(0, 3),
-      width: theme.spacing(35),
+      width: theme.spacing(38),
     },
     list: {
       // width: 325,
@@ -73,7 +73,7 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
 
   const header = () => (
     <Paper elevation={0} className={classes.header}>
-      <Grid container spacing={3} wrap="nowrap">
+      <Grid container spacing={3} wrap="nowrap" alignItems="center">
         <Grid item xs>
           <Avatar
             className={classes.avatar}

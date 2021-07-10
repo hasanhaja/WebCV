@@ -3,12 +3,22 @@ import React from 'react';
 import './education.module.scss';
 import { InfoCard } from '@webcv/core-components';
 import { Description, EducationInformation, OrganizationInformation } from '@webcv/data';
-import { Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 
 /* eslint-disable-next-line */
 export interface EducationProps {}
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+  }),
+);
+
 export function Education(props: EducationProps) {
+  const classes = useStyles();
+
   const cranfield = {
     dates: "2019 to 2020",
     title: "MSc Computational and Software Techniques in Engineering (Computer and Machine Vision)",
@@ -77,9 +87,20 @@ export function Education(props: EducationProps) {
   return (
     <div>
       <Typography variant="h4">Education</Typography>
+      <Grid
+        container
+        // justify="space-evenly"
+        // alignContent="center"
+        className={classes.root}
+      >
       {
-        content.map(education => <InfoCard information={education} />)
+        content.map(education => (
+          <Grid item>
+            <InfoCard information={education} />
+          </Grid>
+        ))
       }
+      </Grid>
     </div>
   );
 }

@@ -15,7 +15,8 @@ import clsx from 'clsx';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: theme.spacing(41),
+      minWidth: theme.spacing(41),
     },
     leftButton: {
       marginLeft: 'auto',
@@ -48,8 +49,10 @@ export function BaseCard({ content, collapsedContent, children }: BaseCardProps)
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    setExpanded(prevExpanded => !prevExpanded);
   };
+
+  const buttonText = expanded ? "Hide" : "Learn more";
 
   return (
     <Card className={classes.root} elevation={4}>
@@ -66,7 +69,7 @@ export function BaseCard({ content, collapsedContent, children }: BaseCardProps)
             [classes.expandOpen]: expanded,
           })} />}
         >
-          Learn more
+          { buttonText }
         </Button>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -76,7 +79,6 @@ export function BaseCard({ content, collapsedContent, children }: BaseCardProps)
           {children ?
             <>
               <Divider />
-              <Typography variant="h6">More info</Typography>
               { children }
             </>
             : null

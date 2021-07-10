@@ -24,7 +24,7 @@ export function Location({ location }: LocationProps) {
             enterNextDelay={750}
             enterTouchDelay={500}
           >
-            <Typography variant="h6">
+            <Typography>
               {location.city}
             </Typography>
           </Tooltip>

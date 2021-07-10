@@ -49,7 +49,7 @@ export function InfoCard({ information, children }: InfoCardProps) {
           </Avatar>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" noWrap={true}>
+          <Typography variant="h6">
             { organization.name }
           </Typography>
         </Grid>

@@ -6,6 +6,8 @@ import { Container, createStyles, makeStyles, Theme } from '@material-ui/core';
 /* eslint-disable-next-line */
 export interface ContentProps {
   children: React.ReactNode;
+// TODO Refactor sizing. This might not be a good way to do it.
+  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -17,10 +19,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export function Content({ children }: ContentProps) {
+export function Content({ width, children }: ContentProps) {
   const classes = useStyles();
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} maxWidth={width}>
       { children }
     </Container>
   );

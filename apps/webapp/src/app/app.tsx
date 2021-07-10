@@ -15,7 +15,8 @@ export function App() {
   return (
       <>
         <Header />
-        <Content>
+        {/*TODO Refactor sizing. This might not be a good way to do it.*/}
+        <Content width="md">
           <Hero profilePicPath="assets/hero/profile_pic.jpg"
                 alt="Profile picture of a handsome devil."
                 size={{width: 35, height: 35}}
