@@ -1,23 +1,16 @@
 import React from 'react';
-import { InfoCard } from '@webcv/core-components';
+import { InfoCard, Section } from '@webcv/core-components';
 import { ExperienceInformation} from '@webcv/data';
 
 import './experience.module.scss';
-import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 /* eslint-disable-next-line */
-export interface ExperienceProps {}
+export interface ExperienceProps {
+  className?: string;
+}
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-  }),
-);
-
-export function Experience(props: ExperienceProps) {
-  const classes = useStyles();
+export function Experience({ className }: ExperienceProps) {
 
   const eschmannExperience = new ExperienceInformation(
     2016,
@@ -43,11 +36,9 @@ export function Experience(props: ExperienceProps) {
   const content = [eschmannExperience]
 
   return (
-    <div>
-      <Typography variant="h4">Experience</Typography>
+    <Section title="Experience" className={className}>
       <Grid
       container
-      className={classes.root}
       >
       {
         content.map(experience => (
@@ -57,7 +48,7 @@ export function Experience(props: ExperienceProps) {
         ))
       }
       </Grid>
-    </div>
+    </Section>
   );
 }
 

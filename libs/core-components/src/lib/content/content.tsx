@@ -13,13 +13,13 @@ export interface ContentProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      // flexGrow: 1,
       overflow: "hidden",
     },
   }),
 );
 
-export function Content({ width, children }: ContentProps) {
+export function Content({ width="lg", children }: ContentProps) {
   const classes = useStyles();
   return (
     <Container className={classes.root} maxWidth={width}>

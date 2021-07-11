@@ -12,11 +12,11 @@ export interface LocationProps {
 
 export function Location({ location }: LocationProps) {
   return (
-      <Grid container spacing={2} wrap="nowrap">
-        <Grid item xs>
+      <Grid direction="row" container spacing={0} wrap="nowrap">
+        <Grid item>
           <LocationOnIcon/>
         </Grid>
-        <Grid item xs={11}>
+        <Grid item>
           <Tooltip
             title={`${location.city}, ${location.country}`}
             placement="top-start"

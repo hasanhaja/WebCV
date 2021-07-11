@@ -1,33 +1,38 @@
 import React from 'react';
 
 import './skills.module.scss';
-import { Typography } from '@material-ui/core';
-import { SkillsCard } from '@webcv/core-components';
+import { Grid} from '@material-ui/core';
+import { Section, SkillsCard } from '@webcv/core-components';
 
 /* eslint-disable-next-line */
-export interface SkillsProps {}
+export interface SkillsProps {
+  className?: string;
+}
 
-export function Skills(props: SkillsProps) {
+export function Skills({ className } : SkillsProps) {
 
   const skills = ["JavaScript", "HTML", "CSS", "Java", "Kotlin", "Python"]
 
   const secondarySkills = ["ReasonML/ReScript", "Rust", "MATLAB", "TypeScript", "ExpressJS", "Tensorflow/TensorflowJS", "Pytorch", "ArrowKT", "KTor"]
 
+  const skillsCards = (
+    <Grid container>
+      <Grid item>
+        <SkillsCard />
+      </Grid>
+      <Grid item>
+        <SkillsCard />
+      </Grid>
+      <Grid item>
+        <SkillsCard />
+      </Grid>
+    </Grid>
+  );
+
   return (
-    <div>
-      <Typography variant="h4">Skills</Typography>
-      {/*<ul className="skills-content-list" id="skills-primary">*/}
-      {/*  {*/}
-      {/*    skills.map(skill => <li>{skill}</li>)*/}
-      {/*  }*/}
-      {/*</ul>*/}
-      {/*<ul className="skills-content-list" id="skills-secondary">*/}
-      {/*  {*/}
-      {/*    secondarySkills.map(skill => <li>{skill}</li>)*/}
-      {/*  }*/}
-      {/*</ul>*/}
-      <SkillsCard />
-    </div>
+    <Section title="Skills" className={className}>
+      { skillsCards }
+    </Section>
   );
 }
 

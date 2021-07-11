@@ -1,23 +1,16 @@
 import React from 'react';
 
 import './education.module.scss';
-import { InfoCard } from '@webcv/core-components';
+import { InfoCard, Section } from '@webcv/core-components';
 import { Description, EducationInformation, OrganizationInformation } from '@webcv/data';
-import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 /* eslint-disable-next-line */
-export interface EducationProps {}
+export interface EducationProps {
+  className?: string;
+}
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-  }),
-);
-
-export function Education(props: EducationProps) {
-  const classes = useStyles();
+export function Education({ className }: EducationProps) {
 
   const cranfield = {
     dates: "2019 to 2020",
@@ -85,13 +78,9 @@ export function Education(props: EducationProps) {
   const content = [cranfieldEducation, brightonEducation]
 
   return (
-    <div>
-      <Typography variant="h4">Education</Typography>
+    <Section title="Education" className={className}>
       <Grid
         container
-        // justify="space-evenly"
-        // alignContent="center"
-        className={classes.root}
       >
       {
         content.map(education => (
@@ -101,7 +90,7 @@ export function Education(props: EducationProps) {
         ))
       }
       </Grid>
-    </div>
+    </Section>
   );
 }
 

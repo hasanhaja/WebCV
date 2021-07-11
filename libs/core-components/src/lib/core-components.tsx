@@ -5,6 +5,7 @@ import LinkedInSocial from './linked-in-social/linked-in-social';
 import TwitterSocial from './twitter-social/twitter-social';
 import Location from './location/location';
 import SkillsCard from './skills-card/skills-card';
+import Section from './section/section';
 
 export {
   InfoCard,
@@ -14,4 +15,5 @@ export {
   TwitterSocial,
   Location,
   SkillsCard,
+  Section,
 };

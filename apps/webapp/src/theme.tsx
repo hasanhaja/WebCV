@@ -1,4 +1,5 @@
-import { createMuiTheme, ThemeOptions } from '@material-ui/core';
+import { createStyles, createTheme, Theme, ThemeOptions } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const themeSizes = {
   overallBorderRadius: 15,
@@ -14,7 +15,12 @@ const commonTheme: ThemeOptions = {
     MuiPaper: {
       root: {
         borderRadius: `${themeSizes.overallBorderRadius}px 0 0 ${themeSizes.overallBorderRadius}px`,
-        // padding: themeSizes.overallPadding,
+        padding: themeSizes.overallPadding,
+      }
+    },
+    MuiAppBar: {
+      root: {
+        padding: 0,
       }
     },
     MuiButton: {
@@ -26,6 +32,16 @@ const commonTheme: ThemeOptions = {
       root: {
         borderRadius: themeSizes.overallBorderRadius,
       }
+    },
+    MuiContainer: {
+      root: {
+        padding: themeSizes.overallPadding,
+      }
+    },
+    MuiGrid: {
+      container: {
+        flexGrow: 1,
+      },
     },
   },
 
@@ -41,12 +57,15 @@ const commonTheme: ThemeOptions = {
       light: true,
     },
     MuiGrid: {
-      justify: "space-between",
-      alignContent: "center",
+      justifyContent: "center",
+      spacing: 4,
     },
     MuiTypography: {
       variant: "body1",
     },
+    MuiContainer: {
+      disableGutters: true,
+    }
   }
 }
 
@@ -79,5 +98,17 @@ const lightTheme: ThemeOptions = {
   ...commonTheme,
 }
 
+export const useDefaultSpacingStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      padding: theme.spacing(1, 0, 6, 0),
+    },
+    title: {
+      paddingBottom: theme.spacing(2),
+    }
+  }),
+);
+
 export const setTheme = (enableDarkMode = true) =>
-  createMuiTheme(enableDarkMode ? darkTheme : lightTheme);
+  createTheme(enableDarkMode ? darkTheme : lightTheme);

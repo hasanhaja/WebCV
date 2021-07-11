@@ -1,31 +1,22 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 import CloseIcon from '@material-ui/icons/Close';
 
-import styles from './menu-drawer.module.scss';
 import {
-  AppBar, Avatar,
+  Avatar,
   createStyles,
   Grid,
   IconButton,
   Paper,
   SwipeableDrawer,
   Theme,
-  Toolbar,
   Typography
 } from '@material-ui/core';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import MenuIcon from '@material-ui/icons/Menu';
 import { LinkedInSocial, GitHubSocial, TwitterSocial } from '@webcv/core-components';
 
 /* eslint-disable-next-line */
@@ -42,9 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
       // background: bg,
       // width: 325,
       flexGrow: 1,
-      overflow: 'hidden',
+      // overflow: 'hidden',
       // padding: theme.spacing(0, 3),
-      width: theme.spacing(38),
+      width: theme.spacing(35),
     },
     list: {
       // width: 325,
@@ -103,9 +94,8 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Projects', 'Blog', 'Education', 'Experience', 'Statistics'].map((text, index) => (
+        {['Projects', 'Blog', 'Education', 'Experience', 'Statistics'].map((text) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
