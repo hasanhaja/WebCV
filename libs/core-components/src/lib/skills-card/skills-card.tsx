@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './skills-card.module.scss';
-import { Avatar, Chip, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Avatar, Chip, createStyles, Divider, makeStyles, Theme, Typography } from '@material-ui/core';
 import BaseCard from '../base-card/base-card';
 import { SkillsData } from '@webcv/data';
 
@@ -31,6 +31,7 @@ export function SkillsCard({ content: data, children }: SkillsCardProps) {
       <Typography variant="h5">
         {data.category}
       </Typography>
+      <Divider />
       <div className={classes.root}>
         {
           data.coreSkills.map(skill => (

@@ -25,24 +25,12 @@ export interface MenuDrawerProps {
   toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
-// const bg = "orange";
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      // background: bg,
-      // width: 325,
       flexGrow: 1,
-      // overflow: 'hidden',
-      // padding: theme.spacing(0, 3),
+      overflow: 'hidden',
       width: theme.spacing(35),
-    },
-    list: {
-      // width: 325,
-    },
-    paper: {
-      // borderRadius: "15px 0 0 15px",
-      // background: bg,
     },
     closeButton: {
       marginRight: theme.spacing(2),
@@ -88,7 +76,6 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
 
   const list = () => (
     <div
-      className={classes.list}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -127,7 +114,6 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
                      open={openState}
                      onClose={toggleDrawer(false)}
                      onOpen={toggleDrawer(true)}
-                     classes={{paper: classes.paper}}
                      anchor="right"
     >
       <div className={classes.root}>

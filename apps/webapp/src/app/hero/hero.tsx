@@ -43,16 +43,20 @@ export function Hero({ profilePicPath, alt, size, greeting, location, className 
         <Avatar className={classes.large} src={profilePicPath} alt={alt} id="profile-pic"/>
       </Grid>
       <Grid item>
-        <Typography
-          variant="h5"
-          id="greeting"
-          noWrap={true}
-        >
-          {greeting}
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Location location={location} />
+        <Grid container direction="column" alignItems="center" spacing={0}>
+          <Grid item>
+            <Typography
+              variant="h4"
+              id="greeting"
+              noWrap={true}
+            >
+              {greeting}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Location location={location} />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

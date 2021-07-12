@@ -5,7 +5,7 @@ import {
   Avatar,
   Chip,
   createStyles,
-  Grid, makeStyles, Paper, Theme, Typography
+  Grid, makeStyles, Theme, Typography
 } from '@material-ui/core';
 import { Information } from '@webcv/data';
 import { Location } from '@webcv/core-components';

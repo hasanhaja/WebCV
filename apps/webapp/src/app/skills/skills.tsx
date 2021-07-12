@@ -14,7 +14,7 @@ export function Skills({ className } : SkillsProps) {
 
   const frontend: SkillsData = {
     category: "Front-end",
-    coreSkills: ["JavaScript", "TypeScript", "React", "Figma"],
+    coreSkills: ["TypeScript", "React", "JavaScript", "Figma"],
     relatedSkills: ["ReasonML/ReScript", "MaterialUI", "SASS", "HTML", "CSS", "Functional Programming", "OOP"],
   };
 
@@ -29,10 +29,6 @@ export function Skills({ className } : SkillsProps) {
     coreSkills: ["Python", "Pytorch", "Tensorflow", "MATLAB"],
     relatedSkills: ["D3", "Functional Programming", "WebGL", "Simulink", "TensorflowJS"],
   };
-
-  const skills = ["JavaScript", "HTML", "CSS", "Java", "Kotlin", "Python"]
-
-  const secondarySkills = ["ReasonML/ReScript", "Rust", "MATLAB", "TypeScript", "ExpressJS", "Tensorflow/TensorflowJS", "Pytorch", "ArrowKT", "KTor"]
 
   const skillsCards = (
     <Grid container>

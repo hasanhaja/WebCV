@@ -11,6 +11,17 @@ const commonTheme: ThemeOptions = {
     borderRadius: themeSizes.overallBorderRadius,
   },
 
+  typography: {
+    fontFamily: [
+      '"Helvetica Neue"',
+      'Verdana',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+
   overrides: {
     MuiPaper: {
       root: {
@@ -22,7 +33,7 @@ const commonTheme: ThemeOptions = {
     MuiAppBar: {
       root: {
         padding: 0,
-      }
+      },
     },
     MuiButton: {
       root: {
@@ -53,7 +64,13 @@ const commonTheme: ThemeOptions = {
     MuiTypography: {
       root: {
         padding: `${themeSizes.overallPadding}px ${themeSizes.overallPadding*2}px`,
-      }
+      },
+    },
+    MuiAvatar: {
+      colorDefault: {
+        color: "#222831",
+        backgroundColor: "#fbdab7",
+      },
     },
   },
 
@@ -74,6 +91,7 @@ const commonTheme: ThemeOptions = {
     },
     MuiTypography: {
       variant: "body1",
+      color: "textPrimary",
     },
     MuiContainer: {
       disableGutters: true,
@@ -95,6 +113,15 @@ const darkTheme: ThemeOptions = {
     type: "dark",
     primary: {
       main: "#222831",
+      contrastText: "#e8e8e8",
+    },
+    secondary: {
+      main: "#FBDAB7",
+      contrastText: "#222831",
+    },
+    text: {
+      primary: "#e8e8e8",
+      secondary: "#fbdab7",
     },
     // action: {
     //   hover: "rgba(212, 241, 244, 0.08)",
@@ -102,7 +129,7 @@ const darkTheme: ThemeOptions = {
     background: {
       paper: "#222831",
       default: "#222831"
-    }
+    },
   },
   ...commonTheme,
 }
