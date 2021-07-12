@@ -14,7 +14,8 @@ export interface SectionProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      // width: 407,
+      // paddingLeft: theme.spacing(2),
+      // paddingRight: theme.spacing(2),
     },
   }),
 );
@@ -27,10 +28,15 @@ export function Section({ title, children, className }: SectionProps) {
       // className={`${className} ${classes.root}`}
       className={className}
       direction="column"
-      alignContent="flex-start"
+      justifyContent="flex-start"
     >
       <Grid item>
-        <Typography variant="h4">{ title }</Typography>
+        <Typography
+          className={classes.root}
+          variant="h4"
+        >
+          { title }
+        </Typography>
       </Grid>
       <Grid item>
         { children }

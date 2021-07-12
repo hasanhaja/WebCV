@@ -22,7 +22,7 @@ export function App() {
           <Hero profilePicPath="assets/hero/profile_pic.jpg"
                 alt="Profile picture of a handsome devil."
                 size={{width: 35, height: 35}}
-                greeting="Hi, I'm Hasan!"
+                greeting="Hi, I'm Hasan 👋🏾"
                 location={{city: "Dubai", country: "United Arab Emirates"}}
                 className={classes.root}
           />

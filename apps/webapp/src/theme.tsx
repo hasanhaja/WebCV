@@ -16,6 +16,7 @@ const commonTheme: ThemeOptions = {
       root: {
         borderRadius: `${themeSizes.overallBorderRadius}px 0 0 ${themeSizes.overallBorderRadius}px`,
         padding: themeSizes.overallPadding,
+        backgroundColor: "rgba(34, 40, 49, 1)",
       }
     },
     MuiAppBar: {
@@ -36,12 +37,23 @@ const commonTheme: ThemeOptions = {
     MuiContainer: {
       root: {
         padding: themeSizes.overallPadding,
+        backgroundColor: "#30475e",
       }
+    },
+    MuiCard: {
+      root: {
+        backgroundColor: "rgba(34, 40, 49, 0.8)",
+      },
     },
     MuiGrid: {
       container: {
         flexGrow: 1,
       },
+    },
+    MuiTypography: {
+      root: {
+        padding: `${themeSizes.overallPadding}px ${themeSizes.overallPadding*2}px`,
+      }
     },
   },
 
@@ -65,7 +77,10 @@ const commonTheme: ThemeOptions = {
     },
     MuiContainer: {
       disableGutters: true,
-    }
+    },
+    MuiChip: {
+      color: "secondary",
+    },
   }
 }
 
@@ -84,6 +99,10 @@ const darkTheme: ThemeOptions = {
     // action: {
     //   hover: "rgba(212, 241, 244, 0.08)",
     // },
+    background: {
+      paper: "#222831",
+      default: "#222831"
+    }
   },
   ...commonTheme,
 }

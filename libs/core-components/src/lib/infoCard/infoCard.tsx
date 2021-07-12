@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
       width: theme.spacing(10),
       height: theme.spacing(10),
     },
+    title: {
+      padding: 0,
+    },
   }),
 );
 
@@ -39,7 +42,7 @@ export function InfoCard({ information, children }: InfoCardProps) {
 
   const content = (
     <>
-      <Typography noWrap={true}>
+      <Typography variant="subtitle2" noWrap={true}>
         {`${startYear} to ${endYear}`}
       </Typography>
       <Grid container wrap="nowrap" alignItems="center" spacing={2}>
@@ -49,13 +52,19 @@ export function InfoCard({ information, children }: InfoCardProps) {
           </Avatar>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h6">
-            { organization.name }
-          </Typography>
+          <Grid container direction="column" alignItems="flex-start" spacing={1}>
+            <Grid item>
+              <Typography variant="h5" className={classes.title}>
+                { organization.name }
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Location location={organization} />
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-      <Location location={organization} />
-      <Typography>
+      <Typography variant="subtitle1">
         { title }
       </Typography>
     </>
@@ -65,16 +74,19 @@ export function InfoCard({ information, children }: InfoCardProps) {
     <>
       {
         descriptions.map(description => (
-          <Grid container wrap="nowrap" alignItems="flex-start" spacing={2}>
+          <Grid
+            container
+            wrap="nowrap"
+            direction="column"
+            spacing={2}
+          >
             <Grid item xs>
-              <Chip color="primary" label={description.title} />
+              <Chip label={description.title} />
             </Grid>
             <Grid item xs={12}>
-              <Paper elevation={0}>
-                <Typography>
-                  { description.note }
-                </Typography>
-              </Paper>
+              <Typography paragraph>
+                { description.note }
+              </Typography>
             </Grid>
           </Grid>
         ))

@@ -3,6 +3,7 @@ import React from 'react';
 import './skills.module.scss';
 import { Grid} from '@material-ui/core';
 import { Section, SkillsCard } from '@webcv/core-components';
+import { SkillsData } from '@webcv/data';
 
 /* eslint-disable-next-line */
 export interface SkillsProps {
@@ -11,6 +12,24 @@ export interface SkillsProps {
 
 export function Skills({ className } : SkillsProps) {
 
+  const frontend: SkillsData = {
+    category: "Front-end",
+    coreSkills: ["JavaScript", "TypeScript", "React", "Figma"],
+    relatedSkills: ["ReasonML/ReScript", "MaterialUI", "SASS", "HTML", "CSS", "Functional Programming", "OOP"],
+  };
+
+  const backend: SkillsData = {
+    category: "Back-end",
+    coreSkills: ["Java", "Node.js", "Kotlin", "C++", "PostgreSQL", "MongoDB"],
+    relatedSkills: ["NestJS", "Express", "Rust", "Functional Programming", "OOP", "ArrowKT", "KTor"],
+  };
+
+  const dataScience: SkillsData = {
+    category: "Data Science",
+    coreSkills: ["Python", "Pytorch", "Tensorflow", "MATLAB"],
+    relatedSkills: ["D3", "Functional Programming", "WebGL", "Simulink", "TensorflowJS"],
+  };
+
   const skills = ["JavaScript", "HTML", "CSS", "Java", "Kotlin", "Python"]
 
   const secondarySkills = ["ReasonML/ReScript", "Rust", "MATLAB", "TypeScript", "ExpressJS", "Tensorflow/TensorflowJS", "Pytorch", "ArrowKT", "KTor"]
@@ -18,13 +37,13 @@ export function Skills({ className } : SkillsProps) {
   const skillsCards = (
     <Grid container>
       <Grid item>
-        <SkillsCard />
+        <SkillsCard content={frontend} />
       </Grid>
       <Grid item>
-        <SkillsCard />
+        <SkillsCard content={backend} />
       </Grid>
       <Grid item>
-        <SkillsCard />
+        <SkillsCard content={dataScience} />
       </Grid>
     </Grid>
   );

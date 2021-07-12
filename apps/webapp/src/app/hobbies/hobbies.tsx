@@ -20,7 +20,7 @@ export function Hobbies({ className }: HobbiesProps) {
       {
         content
           .map(paragraph=>
-            <Typography className="hobbies-content">{paragraph}</Typography>
+            <Typography paragraph>{paragraph}</Typography>
           )
       }
     </Section>
