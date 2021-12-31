@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './skills-card.module.scss';
-import { Avatar, Chip, createStyles, Divider, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Chip, createStyles, Divider, makeStyles, Theme, Typography } from '@mui/material';
 import BaseCard from '../base-card/base-card';
 import { SkillsData } from '@webcv/data';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface SkillsCardProps {
@@ -11,28 +11,23 @@ export interface SkillsCardProps {
   children?: React.ReactNode;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      '& > *': {
-        margin: theme.spacing(0.5),
-      },
-    },
-  }),
-);
+const SkillsContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    margin: 4px;
+  }
+`;
 
 export function SkillsCard({ content: data, children }: SkillsCardProps) {
-  const classes = useStyles();
-
   const content = (
     <>
       <Typography variant="h5">
         {data.category}
       </Typography>
       <Divider />
-      <div className={classes.root}>
+      <SkillsContent>
         {
           data.coreSkills.map(skill => (
 
@@ -40,7 +35,7 @@ export function SkillsCard({ content: data, children }: SkillsCardProps) {
 
           ))
         }
-      </div>
+      </SkillsContent>
     </>
   );
 
@@ -51,7 +46,7 @@ export function SkillsCard({ content: data, children }: SkillsCardProps) {
       >
         Related skills
       </Typography>
-      <div className={classes.root}>
+      <SkillsContent>
         {
           data.relatedSkills.map(skill => (
 
@@ -59,7 +54,7 @@ export function SkillsCard({ content: data, children }: SkillsCardProps) {
 
           ))
         }
-      </div>
+      </SkillsContent>
     </>
   )
 

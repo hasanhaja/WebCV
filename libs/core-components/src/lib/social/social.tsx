@@ -1,8 +1,7 @@
 import React from 'react';
 
-import './social.module.scss';
-import { IconButton } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
+import { IconButton } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
 
 /* eslint-disable-next-line */
 export interface SocialProps {

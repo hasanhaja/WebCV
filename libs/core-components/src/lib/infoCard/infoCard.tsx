@@ -1,15 +1,14 @@
 import React from 'react';
 
-import './infoCard.module.scss';
 import {
   Avatar,
   Chip,
-  createStyles,
-  Grid, makeStyles, Theme, Typography
-} from '@material-ui/core';
+  Grid, Typography
+} from '@mui/material';
 import { Information } from '@webcv/data';
-import { Location } from '@webcv/core-components';
 import BaseCard from '../base-card/base-card';
+import Location from "../location/location"
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface InfoCardProps {
@@ -17,21 +16,16 @@ export interface InfoCardProps {
   children?: React.ReactNode;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    large: {
-      width: theme.spacing(10),
-      height: theme.spacing(10),
-    },
-    title: {
-      padding: 0,
-    },
-  }),
-);
+const InfoAvatar = styled(Avatar)`
+  width: ${10*8}px;
+  height: ${10*8}px;
+`;
+
+const OrganizationTitle = styled(Typography)`
+  padding: 0;
+`;
 
 export function InfoCard({ information, children }: InfoCardProps) {
-  const classes = useStyles();
-
   // TODO years should be date objects so they can hold month
   const { startYear, endYear, organization, title, descriptions } = information;
 
@@ -47,16 +41,16 @@ export function InfoCard({ information, children }: InfoCardProps) {
       </Typography>
       <Grid container wrap="nowrap" alignItems="center" spacing={2}>
         <Grid item xs>
-          <Avatar className={classes.large}>
+          <InfoAvatar>
             { avatarInitial(organization.name) }
-          </Avatar>
+          </InfoAvatar>
         </Grid>
         <Grid item xs={12}>
           <Grid container direction="column" alignItems="flex-start" spacing={1}>
             <Grid item>
-              <Typography variant="h5" className={classes.title}>
+              <OrganizationTitle variant="h5" >
                 { organization.name }
-              </Typography>
+              </OrganizationTitle>
             </Grid>
             <Grid item>
               <Location location={organization} />

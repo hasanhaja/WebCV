@@ -1,5 +1,4 @@
-import { createStyles, createTheme, Theme, ThemeOptions } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { createTheme, ThemeOptions } from '@mui/material';
 
 const themeSizes = {
   overallBorderRadius: 15,
@@ -22,84 +21,103 @@ const commonTheme: ThemeOptions = {
     ].join(','),
   },
 
-  overrides: {
+  components: {
     MuiPaper: {
-      root: {
-        borderRadius: `${themeSizes.overallBorderRadius}px 0 0 ${themeSizes.overallBorderRadius}px`,
-        padding: themeSizes.overallPadding,
-        backgroundColor: "rgba(34, 40, 49, 1)",
+      styleOverrides: {
+        root: {
+          borderRadius: `${themeSizes.overallBorderRadius}px 0 0 ${themeSizes.overallBorderRadius}px`,
+          padding: themeSizes.overallPadding,
+          backgroundColor: "rgba(34, 40, 49, 1)",
+        },
       }
     },
     MuiAppBar: {
-      root: {
-        padding: 0,
-      },
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      }
     },
     MuiButton: {
-      root: {
-        textTransform: "none",
-      }
-    },
-    MuiButtonBase: {
-      root: {
-        borderRadius: themeSizes.overallBorderRadius,
-      }
-    },
-    MuiContainer: {
-      root: {
-        padding: themeSizes.overallPadding,
-        backgroundColor: "#30475e",
-      }
-    },
-    MuiCard: {
-      root: {
-        backgroundColor: "rgba(34, 40, 49, 0.8)",
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+        },
+      },
+      defaultProps: {
+        disableRipple: true,
       },
     },
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: themeSizes.overallBorderRadius,
+        },
+      },
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          padding: themeSizes.overallPadding,
+          backgroundColor: "#30475e",
+        },
+      },
+      defaultProps: {
+        disableGutters: true,
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "rgba(34, 40, 49, 0.8)",
+        },
+      }
+    },
     MuiGrid: {
-      container: {
-        flexGrow: 1,
+      styleOverrides: {
+        container: {
+          flexGrow: 1,
+        },
+      },
+      defaultProps: {
+        justifyContent: "center",
+        spacing: 4,
       },
     },
     MuiTypography: {
-      root: {
-        padding: `${themeSizes.overallPadding}px ${themeSizes.overallPadding*2}px`,
+      styleOverrides: {
+        root: {
+          padding: `${themeSizes.overallPadding}px ${themeSizes.overallPadding * 2}px`,
+        },
+      },
+      defaultProps: {
+        variant: "body1",
+        color: "textPrimary",
       },
     },
     MuiAvatar: {
-      colorDefault: {
-        color: "#222831",
-        backgroundColor: "#fbdab7",
+      styleOverrides: {
+        colorDefault: {
+          color: "#222831",
+          backgroundColor: "#fbdab7",
+        },
+      }
+    },
+    MuiChip: {
+      defaultProps: {
+        color: "secondary",
+      },
+    },
+    MuiDivider: {
+      defaultProps: {
+        variant: "middle",
+        light: true,
       },
     },
   },
-
-  props: {
-    MuiButton: {
-      disableRipple: true,
-    },
-    MuiButtonBase: {
-      disableRipple: true,
-    },
-    MuiDivider: {
-      variant: "middle",
-      light: true,
-    },
-    MuiGrid: {
-      justifyContent: "center",
-      spacing: 4,
-    },
-    MuiTypography: {
-      variant: "body1",
-      color: "textPrimary",
-    },
-    MuiContainer: {
-      disableGutters: true,
-    },
-    MuiChip: {
-      color: "secondary",
-    },
-  }
 }
 
 /**
@@ -110,7 +128,7 @@ const commonTheme: ThemeOptions = {
 
 const darkTheme: ThemeOptions = {
   palette: {
-    type: "dark",
+    mode: "dark",
     primary: {
       main: "#222831",
       contrastText: "#e8e8e8",
@@ -136,25 +154,13 @@ const darkTheme: ThemeOptions = {
 
 const lightTheme: ThemeOptions = {
   palette: {
-    type: "light",
+    mode: "light",
     primary: {
       main: "#222831",
     },
   },
   ...commonTheme,
 }
-
-export const useDefaultSpacingStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      padding: theme.spacing(1, 0, 6, 0),
-    },
-    title: {
-      paddingBottom: theme.spacing(2),
-    }
-  }),
-);
 
 export const setTheme = (enableDarkMode = true) =>
   createTheme(enableDarkMode ? darkTheme : lightTheme);

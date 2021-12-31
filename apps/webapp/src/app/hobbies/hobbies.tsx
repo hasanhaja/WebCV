@@ -1,8 +1,7 @@
 import React from 'react';
 
-import './hobbies.module.scss';
-import { Typography } from '@material-ui/core';
 import { Section } from '@webcv/core-components';
+import { Typography } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface HobbiesProps {

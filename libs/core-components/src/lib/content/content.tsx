@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './content.module.scss';
-import { Container, createStyles, makeStyles, Theme } from '@material-ui/core';
+import { Container} from '@mui/material';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface ContentProps {
@@ -10,21 +10,15 @@ export interface ContentProps {
   width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      // flexGrow: 1,
-      overflow: "hidden",
-    },
-  }),
-);
+const StyledContainer = styled(Container)`
+  overflow: hidden;
+`;
 
 export function Content({ width="lg", children }: ContentProps) {
-  const classes = useStyles();
   return (
-    <Container className={classes.root} maxWidth={width}>
+    <StyledContainer maxWidth={width}>
       { children }
-    </Container>
+    </StyledContainer>
   );
 }
 

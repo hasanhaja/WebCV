@@ -1,25 +1,20 @@
 import React from 'react';
 
-import './footer.module.scss';
-import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface FooterProps {}
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      overflow: "hidden",
-    },
-  }),
-);
+const StyledFooter = styled.footer`
+  overflow: hidden;
+  flex-grow: 1;
+`;
 
 export function Footer(props: FooterProps) {
   const year = new Date().getFullYear();
-  const classes = useStyles();
   return (
-    <footer className={classes.root}>
+    <StyledFooter>
       <div>
         <Typography
           color="textSecondary"
@@ -27,7 +22,7 @@ export function Footer(props: FooterProps) {
           {`\u00A9 ${year} Hasan Ali`}
         </Typography>
       </div>
-    </footer>
+    </StyledFooter>
   );
 }
 

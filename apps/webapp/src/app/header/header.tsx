@@ -1,59 +1,43 @@
 import React, { useState } from 'react';
 
-import './header.module.scss';
 import {
   AppBar,
   Avatar,
   Button,
-  createStyles,
   IconButton,
-  makeStyles,
-  Theme,
   Toolbar,
   Typography
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import MenuDrawer from '../menu-drawer/menu-drawer';
-/**
- * import { ReactComponent as Logo } from './logo.svg';
- * <Logo width="75" height="75" />
- *
- * import star from './star.svg';
- *
- * <div className="github-star-badge">
- *  <img src={star} className="material-icons" alt="" />
- *    Star
- * </div>
- */
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      overflow: "hidden",
-    },
-    hamburgerButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-    shape: {
-      borderRadius: 0,
-    },
-    logo: {
-      marginLeft: theme.spacing(2),
-    },
-  }),
-);
+// TODO verify all non-relative styles
+const StyledHamburgerButton = styled(IconButton)`
+  margin-right: 16px;
+`;
+
+const StyledAppBar = styled(AppBar)`
+  border-radius: 0;
+`;
+
+const HeaderDiv = styled.div`
+  flex-grow: 1;
+  overflow: hidden;
+`;
+
+const Title = styled(Typography)`
+  flex-grow: 1;
+`;
+
+const LogoButton = styled(Button)`
+  margin-left: 16px;
+`;
 
 export function Header(props: HeaderProps) {
-  const classes = useStyles();
-
   const [openState, setOpenState] = useState(false);
 
   const toggleDrawer = (open: boolean) => (
@@ -71,29 +55,28 @@ export function Header(props: HeaderProps) {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.shape} position="fixed">
+    <HeaderDiv>
+      <StyledAppBar position="fixed">
         <Toolbar>
-          <Button color="inherit" disabled className={classes.logo}>
+          <LogoButton color="inherit" disabled>
             <Avatar>H</Avatar>
-          </Button>
-          <Typography
+          </LogoButton>
+          <Title
             variant="h6"
-            className={classes.title}
             noWrap={true}
           >
             Hasan Ali
-          </Typography>
-          <IconButton edge="end" className={classes.hamburgerButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+          </Title>
+          <StyledHamburgerButton edge="end" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuIcon />
-          </IconButton>
+          </StyledHamburgerButton>
           <MenuDrawer open={openState} toggleDrawer={toggleDrawer} />
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
       {/* This additional toolbar is a fix to ensure content doesn't get hidden behind it.*/}
       {/* Reference: https://material-ui.com/components/app-bar/*/}
       <Toolbar />
-    </div>
+    </HeaderDiv>
   );
 }
 

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import './skills.module.scss';
-import { Grid} from '@material-ui/core';
 import { Section, SkillsCard } from '@webcv/core-components';
 import { SkillsData } from '@webcv/data';
+import { Grid } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface SkillsProps {

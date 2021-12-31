@@ -1,7 +1,6 @@
 import React from 'react';
 
-import './git-hub-social.module.scss';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Social, { SocialProps } from '../social/social';
 
 export function GitHubSocial({ href, label="GitHub Profile" }: SocialProps) {

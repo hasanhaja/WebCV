@@ -1,23 +1,19 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
-import CloseIcon from '@material-ui/icons/Close';
-
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Avatar,
-  createStyles,
+  Divider,
   Grid,
   IconButton,
-  Paper,
-  SwipeableDrawer,
-  Theme,
+  List,
+  ListItem, ListItemText,
+  Paper, SwipeableDrawer,
   Typography
-} from '@material-ui/core';
+} from '@mui/material';
+
 import { LinkedInSocial, GitHubSocial, TwitterSocial } from '@webcv/core-components';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface MenuDrawerProps {
@@ -25,53 +21,50 @@ export interface MenuDrawerProps {
   toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      overflow: 'hidden',
-      width: theme.spacing(35),
-    },
-    closeButton: {
-      marginRight: theme.spacing(2),
-    },
-    avatar: {
-      marginLeft: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-    header: {
-      width: "100%",
-    }
-  }),
-);
+const Header = styled(Paper)`
+  width: 100%;
+`;
+
+const InitialAvatar = styled(Avatar)`
+  margin-left: 16px;
+`;
+
+const Title = styled(Typography)`
+  flex-grow: 1;
+`;
+
+const CloseButton = styled(IconButton)`
+  margin-right: 16px;
+`;
+
+const DrawerContent = styled.div`
+  flex-grow: 1;
+  overflow-x: hidden;
+  width: ${35*8}px;
+`;
 
 export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
-  const classes = useStyles();
 
   const header = () => (
-    <Paper elevation={0} className={classes.header}>
+    <Header elevation={0}>
       <Grid container spacing={3} wrap="nowrap" alignItems="center">
         <Grid item xs>
-          <Avatar
-            className={classes.avatar}
-          >
+          <InitialAvatar>
             H
-          </Avatar>
+          </InitialAvatar>
         </Grid>
         <Grid item xs>
-          <Typography noWrap={true} variant="h6" className={classes.title}>
+          <Title noWrap={true} variant="h6">
             Hasan Ali
-          </Typography>
+          </Title>
         </Grid>
         <Grid item xs>
-          <IconButton onClick={toggleDrawer(false)} edge="end" className={classes.closeButton} color="inherit">
+          <CloseButton onClick={toggleDrawer(false)} edge="end" color="inherit">
             <CloseIcon />
-          </IconButton>
+          </CloseButton>
         </Grid>
       </Grid>
-    </Paper>
+    </Header>
   );
 
   const list = () => (
@@ -116,13 +109,13 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
                      onOpen={toggleDrawer(true)}
                      anchor="right"
     >
-      <div className={classes.root}>
+      <DrawerContent>
         {/*TODO Adjust this grid component for different screen sizes*/}
         {header()}
         <Divider />
         {list()}
         {socials()}
-      </div>
+      </DrawerContent>
     </SwipeableDrawer>
   );
 }

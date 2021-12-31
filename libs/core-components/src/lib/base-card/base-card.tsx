@@ -1,41 +1,53 @@
 import React from 'react';
 
-import './base-card.module.scss';
-
 import {
   Button,
   Card,
   CardActions,
-  CardContent, Collapse, createStyles,
-  Divider, makeStyles, Theme, Typography
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import clsx from 'clsx';
+  CardContent, Collapse, Divider
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      maxWidth: theme.spacing(41),
-      minWidth: theme.spacing(41),
-    },
-    leftButton: {
-      marginLeft: 'auto',
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    large: {
-      width: theme.spacing(10),
-      height: theme.spacing(10),
-    },
-  }),
-);
+const StyledCard = styled(Card)`
+  max-width: ${41*8}px;
+  min-width: ${41*8}px;
+`;
+
+const ExpandButton = styled(Button)`
+  margin: auto;
+`;
+
+// TODO animation for expand
+const StyledExpandMoreIcon = styled(ExpandMoreIcon)`
+  transform: rotate(0deg);
+  transition: transform 20ms;
+`;
+
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     // root: {
+//     //   maxWidth: theme.spacing(41),
+//     //   minWidth: theme.spacing(41),
+//     // },
+//     leftButton: {
+//       marginLeft: 'auto',
+//     },
+//     expand: {
+//       transform: 'rotate(0deg)',
+//       transition: theme.transitions.create('transform', {
+//         duration: theme.transitions.duration.shortest,
+//       }),
+//     },
+//     expandOpen: {
+//       transform: 'rotate(180deg)',
+//     },
+//     large: {
+//       width: theme.spacing(10),
+//       height: theme.spacing(10),
+//     },
+//   }),
+// );
 
 /* eslint-disable-next-line */
 export interface BaseCardProps {
@@ -45,7 +57,6 @@ export interface BaseCardProps {
 }
 
 export function BaseCard({ content, collapsedContent, children }: BaseCardProps) {
-  const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -55,22 +66,19 @@ export function BaseCard({ content, collapsedContent, children }: BaseCardProps)
   const buttonText = expanded ? "Hide" : "Learn more";
 
   return (
-    <Card className={classes.root} elevation={4}>
+    <StyledCard elevation={4}>
       <CardContent>
         { content }
       </CardContent>
       <CardActions disableSpacing>
-        <Button
-          className={classes.leftButton}
+        <ExpandButton
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-          endIcon={<ExpandMoreIcon className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })} />}
+          endIcon={<ExpandMoreIcon />}
         >
           { buttonText }
-        </Button>
+        </ExpandButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Divider />
@@ -85,7 +93,7 @@ export function BaseCard({ content, collapsedContent, children }: BaseCardProps)
           }
         </CardContent>
       </Collapse>
-    </Card>
+    </StyledCard>
   );
 }
 

@@ -2,8 +2,7 @@ import React from 'react';
 import { InfoCard, Section } from '@webcv/core-components';
 import { ExperienceInformation} from '@webcv/data';
 
-import './experience.module.scss';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface ExperienceProps {

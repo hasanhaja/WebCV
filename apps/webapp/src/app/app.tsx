@@ -8,28 +8,51 @@ import Education from './education/education';
 import Hobbies from './hobbies/hobbies';
 import { Content } from '@webcv/core-components';
 import Footer from './footer/footer';
-import { useDefaultSpacingStyles } from '../theme';
+import styled from 'styled-components';
 
+const StyledHero = styled(Hero)`
+  flex-grow: 1;
+  padding: 8px 0 48px 0;
+`;
+
+const StyledSkills = styled(Skills)`
+  flex-grow: 1;
+  padding: 8px 0 48px 0;
+`;
+
+const StyledEducation = styled(Education)`
+  flex-grow: 1;
+  padding: 8px 0 48px 0;
+`;
+
+const StyledExperience = styled(Experience)`
+  flex-grow: 1;
+  padding: 8px 0 48px 0;
+`;
+
+const StyledHobbies = styled(Hobbies)`
+  flex-grow: 1;
+  padding: 8px 0 48px 0;
+`;
 
 export function App() {
-  const classes = useDefaultSpacingStyles();
+  // const classes = useDefaultSpacingStyles();
 
   return (
       <>
         <Header />
         {/*TODO Refactor sizing. This might not be a good way to do it.*/}
         <Content width="lg">
-          <Hero profilePicPath="assets/hero/profile_pic.jpg"
+          <StyledHero profilePicPath="assets/hero/profile_pic.jpg"
                 alt="Profile picture of a handsome devil."
                 size={{width: 32, height: 32}}
                 greeting="Hi, I'm Hasan 👋🏾"
                 location={{city: "Dubai", country: "United Arab Emirates"}}
-                className={classes.root}
           />
-          <Skills className={classes.root} />
-          <Education className={classes.root} />
-          <Experience className={classes.root}/>
-          <Hobbies className={classes.root} />
+          <StyledSkills />
+          <StyledEducation />
+          <StyledExperience />
+          <StyledHobbies />
         </Content>
         <Footer />
       </>

@@ -26,14 +26,20 @@
     "help": "nx help"
   },
   "private": true,
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+  },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.1",
+    "@mui/material": "^5.2.3",
+    "@mui/styled-engine": "^5.1.0",
+    "@mui/styled-engine-sc": "^5.1.0",
     "core-js": "^3.20.1",
     "document-register-element": "1.14.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "regenerator-runtime": "0.13.9",
+    "styled-components": "^5.3.3",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

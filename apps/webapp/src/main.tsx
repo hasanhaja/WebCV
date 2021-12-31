@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './app/app';
-import { ThemeProvider } from "@material-ui/core/styles";
 import { setTheme } from './theme';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+
 
 // TODO Custom Error page or Page under construction page
 ReactDOM.render(

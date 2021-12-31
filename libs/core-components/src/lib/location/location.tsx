@@ -1,25 +1,20 @@
 import React from 'react';
 
-import './location.module.scss';
-import { createStyles, Grid, makeStyles, Theme, Tooltip, Typography } from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Grid, Tooltip, Typography } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { LocationInformation } from '@webcv/data';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface LocationProps {
   location: LocationInformation,
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      padding: 0,
-    },
-  })
-);
+const City = styled(Typography)`
+  padding: 0;
+`;
 
 export function Location({ location }: LocationProps) {
-  const classes = useStyles();
 
   return (
       <Grid direction="row" container spacing={0} wrap="nowrap">
@@ -34,11 +29,9 @@ export function Location({ location }: LocationProps) {
             enterNextDelay={750}
             enterTouchDelay={500}
           >
-            <Typography
-              className={classes.root}
-            >
+            <City>
               {location.city}
-            </Typography>
+            </City>
           </Tooltip>
         </Grid>
       </Grid>

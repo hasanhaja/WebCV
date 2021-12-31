@@ -1,10 +1,9 @@
 import React from 'react';
 
-import './hero.module.scss';
-
 import { Location } from '@webcv/core-components';
 import { LocationInformation } from '@webcv/data';
-import { Avatar, createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Avatar, Grid, Typography } from '@mui/material';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface HeroProps {
@@ -19,19 +18,16 @@ export interface HeroProps {
   className?: string;
 }
 
-const useStyles = (width: number, height: number) => {
-  return makeStyles((theme: Theme) =>
-    createStyles({
-      large: {
-        width: theme.spacing(width),
-        height: theme.spacing(height),
-      },
-    }),
-  );
-}
+const generateHeroAvatar = (width: number, height: number) => {
+  return styled(Avatar)`
+    width: ${width};
+    height: ${height};
+  `;
+};
 
 export function Hero({ profilePicPath, alt, size, greeting, location, className }: HeroProps) {
-  const classes = useStyles(size.width, size.height)();
+  const HeroAvatar = generateHeroAvatar(size.width, size.height);
+
   return (
     <Grid
       container
@@ -40,7 +36,7 @@ export function Hero({ profilePicPath, alt, size, greeting, location, className 
       className={className}
     >
       <Grid item>
-        <Avatar className={classes.large} src={profilePicPath} alt={alt} id="profile-pic"/>
+        <HeroAvatar src={profilePicPath} alt={alt} id="profile-pic"/>
       </Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center" spacing={0}>

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import './education.module.scss';
 import { InfoCard, Section } from '@webcv/core-components';
 import { Description, EducationInformation, OrganizationInformation } from '@webcv/data';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface EducationProps {
