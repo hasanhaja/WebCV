@@ -1,22 +1,55 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/react" },
-  "defaultProject": "webapp",
-  "generators": {
-    "@nrwl/react": {
-      "application": { "style": "scss", "linter": "eslint", "babel": true },
-      "component": { "style": "scss" },
-      "library": { "style": "scss", "linter": "eslint" }
-    }
-  },
   "projects": {
+    "core-components": {
+      "root": "libs/core-components",
+      "sourceRoot": "libs/core-components/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/core-components/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core-components"],
+          "options": {
+            "jestConfig": "libs/core-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/data/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data"],
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "webapp": {
       "root": "apps/webapp",
       "sourceRoot": "apps/webapp/src",
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/webapp",
@@ -56,9 +89,13 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": { "buildTarget": "webapp:build" },
+          "options": {
+            "buildTarget": "webapp:build"
+          },
           "configurations": {
-            "production": { "buildTarget": "webapp:build:production" }
+            "production": {
+              "buildTarget": "webapp:build:production"
+            }
           }
         },
         "lint": {
@@ -90,51 +127,15 @@
             "devServerTarget": "webapp:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "webapp:serve:production" }
+            "production": {
+              "devServerTarget": "webapp:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/webapp-e2e/**/*.{js,ts}"] }
-        }
-      }
-    },
-    "core-components": {
-      "root": "libs/core-components",
-      "sourceRoot": "libs/core-components/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/core-components/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/core-components"],
-          "options": {
-            "jestConfig": "libs/core-components/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "data": {
-      "root": "libs/data",
-      "sourceRoot": "libs/data/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/data/**/*.ts"] }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data"],
-          "options": {
-            "jestConfig": "libs/data/jest.config.js",
-            "passWithNoTests": true
+            "lintFilePatterns": ["apps/webapp-e2e/**/*.{js,ts}"]
           }
         }
       }
