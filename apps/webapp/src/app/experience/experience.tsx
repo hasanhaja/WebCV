@@ -35,7 +35,7 @@ export function Experience({ className }: ExperienceProps) {
   const content = [eschmannExperience]
 
   return (
-    <Section title="Experience" className={className}>
+    <Section title="Experience" className={className} id="experience-section">
       <Grid
       container
       >

@@ -3,12 +3,11 @@ import React from 'react';
 import {
   Avatar,
   Chip,
-  Grid, Typography
+  Grid, styled, Typography
 } from '@mui/material';
 import { Information } from '@webcv/data';
 import BaseCard from '../base-card/base-card';
-import Location from "../location/location"
-import styled from 'styled-components';
+import Location from "../location/location";
 
 /* eslint-disable-next-line */
 export interface InfoCardProps {

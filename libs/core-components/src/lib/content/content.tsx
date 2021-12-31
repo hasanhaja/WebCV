@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Container} from '@mui/material';
-import styled from 'styled-components';
+import { Container, styled } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface ContentProps {

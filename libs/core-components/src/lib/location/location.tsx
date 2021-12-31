@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Grid, Tooltip, Typography } from '@mui/material';
+import { Grid, styled, Tooltip, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { LocationInformation } from '@webcv/data';
-import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface LocationProps {

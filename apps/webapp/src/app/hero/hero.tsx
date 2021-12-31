@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Location } from '@webcv/core-components';
 import { LocationInformation } from '@webcv/data';
-import { Avatar, Grid, Typography } from '@mui/material';
-import styled from 'styled-components';
+import { Avatar, Grid, styled, Typography } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface HeroProps {
@@ -18,6 +17,7 @@ export interface HeroProps {
   className?: string;
 }
 
+// TODO fix this new styling
 const generateHeroAvatar = (width: number, height: number) => {
   return styled(Avatar)`
     width: ${width};

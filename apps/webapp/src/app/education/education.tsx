@@ -77,7 +77,7 @@ export function Education({ className }: EducationProps) {
   const content = [cranfieldEducation, brightonEducation]
 
   return (
-    <Section title="Education" className={className}>
+    <Section title="Education" className={className} id="education-section">
       <Grid
         container
       >

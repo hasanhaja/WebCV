@@ -8,7 +8,7 @@ import Education from './education/education';
 import Hobbies from './hobbies/hobbies';
 import { Content } from '@webcv/core-components';
 import Footer from './footer/footer';
-import styled from 'styled-components';
+import { styled } from '@mui/material';
 
 const StyledHero = styled(Hero)`
   flex-grow: 1;
@@ -36,8 +36,6 @@ const StyledHobbies = styled(Hobbies)`
 `;
 
 export function App() {
-  // const classes = useDefaultSpacingStyles();
-
   return (
       <>
         <Header />

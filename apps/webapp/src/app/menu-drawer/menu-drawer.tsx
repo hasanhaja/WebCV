@@ -7,13 +7,12 @@ import {
   Grid,
   IconButton,
   List,
-  ListItem, ListItemText,
-  Paper, SwipeableDrawer,
+  ListItemButton, ListItemText,
+  Paper, styled, SwipeableDrawer,
   Typography
 } from '@mui/material';
 
 import { LinkedInSocial, GitHubSocial, TwitterSocial } from '@webcv/core-components';
-import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface MenuDrawerProps {
@@ -37,7 +36,7 @@ const CloseButton = styled(IconButton)`
   margin-right: 16px;
 `;
 
-const DrawerContent = styled.div`
+const DrawerContent = styled("div")`
   flex-grow: 1;
   overflow-x: hidden;
   width: ${35*8}px;
@@ -74,11 +73,25 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Projects', 'Blog', 'Education', 'Experience', 'Statistics'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItemButton component="a" key="Projects" href="https://github.com/hasanhaja" >
+          <ListItemText primary="Projects" />
+        </ListItemButton>
+
+        <ListItemButton component="a" key="Blog" href="https://hasanhaja.medium.com/" >
+          <ListItemText primary="Blog" />
+        </ListItemButton>
+
+        <ListItemButton component="a" key="Education" href="#education-section" >
+          <ListItemText primary="Education" />
+        </ListItemButton>
+
+        <ListItemButton component="a" key="Experience" href="#experience-section">
+          <ListItemText primary="Experience" />
+        </ListItemButton>
+
+        <ListItemButton component="a" key="Statistics" >
+          <ListItemText primary="Statistics" />
+        </ListItemButton>
       </List>
     </div>
   );

@@ -4,10 +4,9 @@ import {
   Button,
   Card,
   CardActions,
-  CardContent, Collapse, Divider
+  CardContent, Collapse, Divider, styled
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
   max-width: ${41*8}px;

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Chip, createStyles, Divider, makeStyles, Theme, Typography } from '@mui/material';
+import { Chip, Divider, styled, Typography } from '@mui/material';
 import BaseCard from '../base-card/base-card';
 import { SkillsData } from '@webcv/data';
-import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface SkillsCardProps {
@@ -11,7 +10,7 @@ export interface SkillsCardProps {
   children?: React.ReactNode;
 }
 
-const SkillsContent = styled.div`
+const SkillsContent = styled("div")`
   display: flex;
   flex-wrap: wrap;
 

@@ -1,4 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material';
+import { createGlobalStyle } from 'styled-components';
 
 const themeSizes = {
   overallBorderRadius: 15,
@@ -164,3 +165,9 @@ const lightTheme: ThemeOptions = {
 
 export const setTheme = (enableDarkMode = true) =>
   createTheme(enableDarkMode ? darkTheme : lightTheme);
+
+export const GlobalStyle = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
+`;

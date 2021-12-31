@@ -7,27 +7,30 @@ export interface SectionProps {
   title: string;
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-export function Section({ title, children, className }: SectionProps) {
+export function Section({ title, children, className, id }: SectionProps) {
   return (
-    <Grid
-      container
-      className={className}
-      direction="column"
-      justifyContent="flex-start"
-    >
-      <Grid item>
-        <Typography
-          variant="h4"
-        >
-          { title }
-        </Typography>
+    <div id={id !== null ? id : ""}>
+      <Grid
+        container
+        className={className}
+        direction="column"
+        justifyContent="flex-start"
+      >
+        <Grid item>
+          <Typography
+            variant="h4"
+          >
+            { title }
+          </Typography>
+        </Grid>
+        <Grid item>
+          { children }
+        </Grid>
       </Grid>
-      <Grid item>
-        { children }
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 

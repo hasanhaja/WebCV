@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Typography } from '@mui/material';
-import styled from 'styled-components';
+import { styled, Typography } from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface FooterProps {}
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled("footer")`
   overflow: hidden;
   flex-grow: 1;
 `;

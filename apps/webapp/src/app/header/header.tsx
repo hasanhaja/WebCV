@@ -4,13 +4,12 @@ import {
   AppBar,
   Avatar,
   Button,
-  IconButton,
+  IconButton, styled,
   Toolbar,
   Typography
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuDrawer from '../menu-drawer/menu-drawer';
-import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -24,7 +23,7 @@ const StyledAppBar = styled(AppBar)`
   border-radius: 0;
 `;
 
-const HeaderDiv = styled.div`
+const HeaderDiv = styled("div")`
   flex-grow: 1;
   overflow: hidden;
 `;
