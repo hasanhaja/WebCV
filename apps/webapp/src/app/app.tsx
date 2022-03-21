@@ -43,7 +43,7 @@ export function App() {
         <Content width="lg">
           <StyledHero profilePicPath="assets/hero/profile_pic.jpg"
                 alt="Profile picture of a handsome devil."
-                size={{width: 32, height: 32}}
+                size={{width: 32*8, height: 32*8}}
                 greeting="Hi, I'm Hasan 👋🏾"
                 location={{city: "Dubai", country: "United Arab Emirates"}}
           />

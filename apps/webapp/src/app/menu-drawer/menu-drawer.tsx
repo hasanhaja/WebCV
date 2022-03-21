@@ -20,16 +20,27 @@ export interface MenuDrawerProps {
   toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
-const Header = styled(Paper)`
+const Div = styled("div")`
   width: 100%;
+`;
+
+const HeaderBanner = styled(Div)`
+  padding-top: 0.8em;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+`;
+
+const SocialBanner = styled(Div)`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
+const MenuOptions = styled(Div)`
+
 `;
 
 const InitialAvatar = styled(Avatar)`
   margin-left: 16px;
-`;
-
-const Title = styled(Typography)`
-  flex-grow: 1;
 `;
 
 const CloseButton = styled(IconButton)`
@@ -45,29 +56,21 @@ const DrawerContent = styled("div")`
 export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
 
   const header = () => (
-    <Header elevation={0}>
-      <Grid container spacing={3} wrap="nowrap" alignItems="center">
-        <Grid item xs>
-          <InitialAvatar>
-            H
-          </InitialAvatar>
-        </Grid>
-        <Grid item xs>
-          <Title noWrap={true} variant="h6">
-            Hasan Ali
-          </Title>
-        </Grid>
-        <Grid item xs>
-          <CloseButton onClick={toggleDrawer(false)} edge="end" color="inherit">
-            <CloseIcon />
-          </CloseButton>
-        </Grid>
-      </Grid>
-    </Header>
+    <HeaderBanner>
+      <InitialAvatar>
+        H
+      </InitialAvatar>
+      <Typography noWrap={true} variant="h6" align="left">
+        Hasan Ali
+      </Typography>
+      <CloseButton onClick={toggleDrawer(false)} edge="end" color="inherit">
+        <CloseIcon />
+      </CloseButton>
+    </HeaderBanner>
   );
 
   const list = () => (
-    <div
+    <MenuOptions
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -93,27 +96,19 @@ export function MenuDrawer({ open: openState, toggleDrawer }: MenuDrawerProps) {
           <ListItemText primary="Statistics" />
         </ListItemButton>
       </List>
-    </div>
+    </MenuOptions>
   );
 
   const socials = () => (
-    <Paper elevation={0}>
-      <Grid container spacing={3} wrap="nowrap">
-        <Grid item xs>
-          <TwitterSocial href="https://twitter.com/hasanhaja"/>
-        </Grid>
-        <Grid item xs>
-          <LinkedInSocial href="https://www.linkedin.com/in/hasanhaja/"/>
-        </Grid>
-        <Grid item xs>
-          <GitHubSocial href="https://github.com/hasanhaja"/>
-        </Grid>
-      </Grid>
-    </Paper>
+    <SocialBanner>
+      <TwitterSocial href="https://twitter.com/hasanhaja"/>
+      <LinkedInSocial href="https://www.linkedin.com/in/hasanhaja/"/>
+      <GitHubSocial href="https://github.com/hasanhaja"/>
+    </SocialBanner>
   );
 
   //
-  const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const iOS = typeof navigator !== undefined && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   return (
     <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS}

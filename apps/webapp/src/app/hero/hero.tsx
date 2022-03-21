@@ -20,8 +20,8 @@ export interface HeroProps {
 // TODO fix this new styling
 const generateHeroAvatar = (width: number, height: number) => {
   return styled(Avatar)`
-    width: ${width};
-    height: ${height};
+    width: ${width}px;
+    height: ${height}px;
   `;
 };
 
